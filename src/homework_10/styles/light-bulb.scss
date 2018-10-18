@@ -1,8 +1,14 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	&__bulbs {
+		display: flex;
+	}
+}
 
 .light {
 	width: 100px;
 	margin: 0 auto;
-	position: relative;
 	&__bulb {
 		margin: 20px 10px;
 		height: 80px;
