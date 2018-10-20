@@ -1,0 +1,35 @@
+@mixin article-header-style {
+  flex-grow: 1;
+	text-align: center;
+	padding: 24px 39px;
+}
+
+
+
+.accordeon {
+	width: 520px;
+	margin: 0 auto;
+	position: relative;
+	&__header {
+		display: flex;
+		width: 100%;
+		height: 80px;
+		background-color: #04082c;
+		color: #fff;
+		font-size: 26px;
+		&__article {
+			@include article-header-style;
+		}
+	}
+}
+
+.active-header {
+	background-color: #1426e1;
+}
+
+.close {
+	height: 0px;
+	display: block;
+	transition: 100ms;
+	transform: scaleY(0);
+}

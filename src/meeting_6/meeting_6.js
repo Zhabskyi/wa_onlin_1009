@@ -1,0 +1,1 @@
+import './meeting_6.scss';
