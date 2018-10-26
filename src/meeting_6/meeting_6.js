@@ -17,11 +17,11 @@ function trafficLighter(selector) {
 
 		const LIGHTER_CLASS_NAME = 'traffic-lighter';
 		let lightsNumber = prompt('How many lights in the lighter?');
-		for (let i = 0; i < lightsNumber; i++) {
-			colorsNumber[i] = prompt('Type in color for the lighter');		
-		}
-		console.log(colorsNumber.length);
 		const menuParent = document.querySelector(selector);
+
+		// for (let i = 0; i < lightsNumber; i++) {
+		// 	colorsNumber[i] = prompt('Type in color for the lighter');		
+		// }
 
 			function render() {
 				div = document.createElement('div');	
@@ -37,19 +37,41 @@ function trafficLighter(selector) {
 				}
 			}
 
+			// function renderColors() {
+			// 	for (let i = 0; i < colorsNumber.length; i++) {
+			// 		let option = document.querySelectorAll('traffic-lighter__lamp');
+			// 		option[i].classList.add('traffic-lighter__lamp_222');
+			// 		console.log('traffic-lighter__lamp_' + colorsNumber[i]);
+			// 	}
+			// }
+			// renderColors();
+
+			
+				const ACTIVE_CLASS_NAME = 'traffic-lighter__lamp_active';
+				const color = document.querySelectorAll('.traffic-lighter__lamp');
+				let activeElement;
+			
+				function tornOnLight(element) {
+					if (activeElement !== undefined) {
+						activeElement.classList.remove(ACTIVE_CLASS_NAME)
+					}
+					activeElement = element;
+					element.classList.toggle(ACTIVE_CLASS_NAME);
+				}
+			
+				for (let i = 0; i < color.length; i ++) {
+					color[i].onclick = function () {
+						tornOnLight(color[i]);
+						console.log(color);
+					};
+			
+			}
+
+
 			render();
 			renderLights();
 }
 addLighter();
-
-function renderColors() {
-	for (let i = 0; i < colorsNumber.length; i++) {
-		let option = document.querySelectorAll('traffic-lighter__lamp');
-		option[i].classList.add('traffic-lighter__lamp_222');
-		console.log('traffic-lighter__lamp_' + colorsNumber[i]);
-	}
-}
-renderColors();
 
 
 
