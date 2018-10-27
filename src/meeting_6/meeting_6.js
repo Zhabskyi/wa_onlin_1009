@@ -3,13 +3,20 @@ import './meeting_6.scss';
 //import { addLighter } from './scripts/traffic-lighter';
 
 const lighterBtn = document.querySelector('#btn-add-lighter');
+const colorBtn = document.querySelector('#btn-add-color');
 const selector = '#new-traffic-lighter';
 let div;
 let colorsNumber = [];
 
-function addLighter(){
+function addLighter() {
 	lighterBtn.addEventListener('click', function() {
 		trafficLighter(selector);
+		addColors();
+	});
+}
+function addColors() {
+	colorBtn.addEventListener('click', function() {
+		lighterColors(selector);
 	});
 }
 
@@ -71,13 +78,16 @@ function trafficLighter(selector) {
 			render();
 			renderLights();
 }
-addLighter();
 
 
 
-function lighterColors(targetElement) {
+function lighterColors(selector) {
+	for (let i = 0; i < array.length; i++) {
+		const ACTIVE_CLASS_NAME = 'traffic-lighter__lamp_active';
+		
+	}
   const ACTIVE_CLASS_NAME = 'traffic-lighter__lamp_active';
-  const color = targetElement.querySelectorAll('.traffic-lighter__lamp');
+  const color = document.querySelectorAll('.traffic-lighter__lamp');
   let activeElement;
 
   function tornOnLight(element) {
@@ -88,13 +98,14 @@ function lighterColors(targetElement) {
     element.classList.toggle(ACTIVE_CLASS_NAME);
   }
 
-  for (let i = 0; i < colorsNumber.length; i += 1) {
-    colorsNumber[i].onclick = function () {
-			tornOnLight(colorsNumber[i]);
-			console.log(colorsNumber);
+  for (let i = 0; i < color.length; i += 1) {
+    color[i].onclick = function () {
+			tornOnLight(color[i]);
+			console.log(color);
     };
 	}
 }
+addLighter();
 
 
 	const lightersHtmlElements = document.querySelector('.traffic-lighter');
