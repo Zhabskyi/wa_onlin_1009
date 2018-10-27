@@ -1,4 +1,4 @@
-$colors: 'red', 'yellow', 'green', 'aqua';
+$colors: 'red', 'yellow', 'green', 'aqua', 'blue';
 
 .traffic-lighter {
   width: 60px;
@@ -11,7 +11,7 @@ $colors: 'red', 'yellow', 'green', 'aqua';
     width: 40px;
     margin: 10px auto;
     border-radius: 50%;
-    background-color: rgb(124, 58, 58);
+    background-color: rgb(122, 122, 122);
     outline: none;
     transition: all 0.5s;
     &_active {
