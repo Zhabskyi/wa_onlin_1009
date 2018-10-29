@@ -19,3 +19,28 @@ for (let i=0; i < activeEl.length; i++) {
 		addClass(activeEl[i]);
 	}
 }
+
+function pagination( currentEl, number) {
+	
+	const buttons = [];
+
+	for (let i = 0; i < number; i++) {
+		let btn = document.createElement('button');
+		buttons.push(btn);
+		btn.textContent = (i+1);
+		currentEl.appendChild(btn);
+		btn.addEventListener('click', select
+		);
+	}
+
+
+	function select() {
+		buttons.forEach( (item) => item.style.background = 'none');
+		this.style.background = 'red';
+	}
+
+}
+
+
+
+pagination(document.querySelector('.targetElement'), 3);
