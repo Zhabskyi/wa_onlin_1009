@@ -1,5 +1,8 @@
 import './personal_1.scss';
 
+import { updateClock } from './scripts/clock';
+
+
 const ROOT_CLASS_NAME = 'control-panel';
 const CONTROL_BTN_CLASS_NAME = `${ROOT_CLASS_NAME}__next-btn`;
 const LIST_COUNTER_CLASS_NAME = `${ROOT_CLASS_NAME}__targetElement`;
@@ -72,3 +75,6 @@ function pagination( currentEl, number) {
 }
 
 pagination(document.querySelector('.control-panel'), 7);
+
+
+setInterval(updateClock, 1000);
