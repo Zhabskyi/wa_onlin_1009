@@ -22,6 +22,7 @@ const baseConf = (_path) => {
 				lesson_10: ['./src/lesson_10/lesson_10.js'],
 				meeting_6: ['./src/meeting_6/meeting_6.js'],
 				personal_1: ['./src/personal_1/personal_1.js'],
+				personal_2: ['./src/personal_2/personal_2.js'],
     };
 
     const plugins = Object.keys(entry).reduce((acc, name) => {

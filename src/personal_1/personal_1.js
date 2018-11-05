@@ -1,6 +1,7 @@
 import './personal_1.scss';
 
 import { updateClock } from './scripts/clock';
+import { Clock } from './scripts/clockClasses';
 
 
 const ROOT_CLASS_NAME = 'control-panel';
@@ -76,5 +77,6 @@ function pagination( currentEl, number) {
 
 pagination(document.querySelector('.control-panel'), 7);
 
-
-setInterval(updateClock, 1000);
+const clockFirst = new Clock(document.querySelector('.clock-classes'), 'full');
+const clockSecond = new Clock(document.querySelector('.second-clock'), 'simple');
+const clockThird = new Clock(document.querySelector('.third-clock'), 'date');
