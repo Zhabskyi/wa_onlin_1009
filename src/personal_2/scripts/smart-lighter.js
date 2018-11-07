@@ -5,7 +5,7 @@ export class SmartLighter {
 		this.colors = colors;
 		this.renderWidget();
 		this.renderLighter();
-		this.turnOn();
+		this.turnOnButton();
 	}
 
 	renderWidget() {
@@ -24,11 +24,11 @@ export class SmartLighter {
 	renderLighter() {
 		this.item = [];
 		for (let i = 0; i < this.colors.length; i++) {
-			let light = document.createElement('button');
-			light.classList.add('traffic-lighter__lamp');
-			light.classList.add(`traffic-lighter__lamp_${this.colors[i]}`);
-			this.item.push(light);
-			this.lighterContainer.appendChild(light);
+			this.light = document.createElement('button');
+			this.light.classList.add('traffic-lighter__lamp');
+			this.light.classList.add(`traffic-lighter__lamp_${this.colors[i]}`);
+			this.item.push(this.light);
+			this.lighterContainer.appendChild(this.light);
 		}
 	}
 
@@ -43,19 +43,51 @@ export class SmartLighter {
 			el.classList.toggle(ACTIVE_CLASS_NAME);
 		}
 
+
 	changeLight() {
+		this.item.forEach(element => {
+				element.addEventListener('click', () => {this.tornOnLight(element)});
+		});
+	}
+
+
+	changeLight_1() {
 		for (let i = 0; i < this.item.length; i++) {
-			this.item[i].addEventListener('click', () => {
+			this.item[i].addEventListener('click', function() {
 				this.tornOnLight(this.item[i]);
 			});
+			
 		}
 	}
 
-	turnOn() {
+	
+
+	disableAll() {
+		this.item.forEach((element) => {
+			if (element.classList.contains('traffic-lighter__lamp_active'))
+			{
+				element.classList.remove('traffic-lighter__lamp_active');
+			}
+			element.removeEventListener('click', () => {
+				this.tornOnLight(element);
+			});
+			});
+	}
+
+	toggleLighter() {
+			if (this.btn.classList.contains('toggle-button_active'))
+			{
+				this.changeLight();
+			} else {
+				this.disableAll();
+			}
+	}
+
+	turnOnButton() {
 		this.btn.addEventListener('click', () => {
 			this.btn.classList.toggle('toggle-button_active');
-			this.changeLight();
-		})
+			this.toggleLighter();
+		});
 	}
 
 }
