@@ -32,7 +32,7 @@ export class SmartLighter {
 		}
 	}
 
-	tornOnLight(el) {
+	turnOnLight(el) {
 		const ACTIVE_CLASS_NAME = 'traffic-lighter__lamp_active';
 		this.activeElement;
 
@@ -44,20 +44,22 @@ export class SmartLighter {
 		}
 
 
+
+
 	changeLight() {
 		this.item.forEach(element => {
-				element.addEventListener('click', () => {this.tornOnLight(element)});
+			element.addEventListener('click', () => {
+				this.turnOnLight(element);
+			});
 		});
 	}
 
-
-	changeLight_1() {
-		for (let i = 0; i < this.item.length; i++) {
-			this.item[i].addEventListener('click', function() {
-				this.tornOnLight(this.item[i]);
+	stopChangeLight() {
+		this.item.forEach(element => {
+			element.removeEventListener('click', () => {
+				this.turnOnLight(element);
 			});
-			
-		}
+		});
 	}
 
 	
@@ -68,16 +70,28 @@ export class SmartLighter {
 			{
 				element.classList.remove('traffic-lighter__lamp_active');
 			}
-			element.removeEventListener('click', () => {
-				this.tornOnLight(element);
+			console.log('listener disabled');
 			});
-			});
+			this.stopChangeLight();
+	}
+
+	lightSwitch() {
+		for (let i = 0; i < this.item.length; i++) {
+			this.item[i].classList.add('traffic-lighter__lamp_active');
+			
+		}
+	}
+
+	lightSwitchRun() {
+		this.interval = setInterval( () => this.lightSwitch(), 1000);
 	}
 
 	toggleLighter() {
 			if (this.btn.classList.contains('toggle-button_active'))
 			{
 				this.changeLight();
+				this.lightSwitchRun();
+
 			} else {
 				this.disableAll();
 			}
