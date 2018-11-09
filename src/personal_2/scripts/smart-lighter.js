@@ -3,6 +3,11 @@ export class SmartLighter {
 	constructor (rootElement, colors) {
 		this.rootElement = rootElement;
 		this.colors = colors;
+		this.currentColor = 0;
+		this.listen = this.listen.bind(this);
+		this.mouseOverEffectStop = this.mouseOverEffectStop.bind(this);
+		this.mouseOverEffectStart = this.mouseOverEffectStart.bind(this);
+		this.lightSwitch = this.lightSwitch.bind(this);
 		this.renderWidget();
 		this.renderLighter();
 		this.turnOnButton();
@@ -43,15 +48,22 @@ export class SmartLighter {
 			el.classList.toggle(ACTIVE_CLASS_NAME);
 		}
 
+		listen(el) {
+			this.turnOnLight(el);
+		}
 
 
+	changeLight_1() {
+		this.item.forEach(element => {
+			this.element = element;
+			this.element.addEventListener('click', this.listen);
+		});
+	}
 
 	changeLight() {
-		this.item.forEach(element => {
-			element.addEventListener('click', () => {
-				this.turnOnLight(element);
-			});
-		});
+		for (let i = 0; i < this.item.length; i++) {
+			this.item[i].addEventListener( 'click', this.listen);
+		}
 	}
 
 	stopChangeLight() {
@@ -62,39 +74,69 @@ export class SmartLighter {
 		});
 	}
 
-	
-
-	disableAll() {
+	removeActiveLighterClass() {
 		this.item.forEach((element) => {
 			if (element.classList.contains('traffic-lighter__lamp_active'))
-			{
-				element.classList.remove('traffic-lighter__lamp_active');
-			}
-			console.log('listener disabled');
-			});
-			this.stopChangeLight();
+				{
+					element.classList.remove('traffic-lighter__lamp_active');
+				}
+		});
 	}
 
 	lightSwitch() {
-		for (let i = 0; i < this.item.length; i++) {
-			this.item[i].classList.add('traffic-lighter__lamp_active');
-			
-		}
-	}
+		 this.item[this.currentColor].classList.remove('traffic-lighter__lamp_active');
+		 this.currentColor = (this.currentColor+1)%(this.item.length);
+		 this.item[this.currentColor].classList.add('traffic-lighter__lamp_active');
+	 }
+	 
+	 intervalLightRun() {
+		 this.interval = setInterval(this.lightSwitch, 400);
+	 }
 
-	lightSwitchRun() {
-		this.interval = setInterval( () => this.lightSwitch(), 1000);
-	}
+	 intervalLightStop() {
+		clearInterval(this.interval);
+		this.interval = undefined;
+	 }
+	 
+	 mouseOverEffect() {
+		this.lighterContainer.addEventListener('mouseover', 
+			this.mouseOverEffectStop);
+		this.lighterContainer.addEventListener('mouseout', 
+			this.mouseOverEffectStart);
+	 }
+
+	 removeMouseOverEffect() {
+		this.lighterContainer.removeEventListener('mouseover', 
+			this.mouseOverEffectStop);
+		this.lighterContainer.removeEventListener('mouseout', 
+			this.mouseOverEffectStart);
+	 }
+
+	 mouseOverEffectStop () {
+		this.intervalLightStop();
+		this.removeActiveLighterClass();
+	 }
+
+	 mouseOverEffectStart () {
+		this.intervalLightRun();
+	 }
 
 	toggleLighter() {
 			if (this.btn.classList.contains('toggle-button_active'))
 			{
 				this.changeLight();
-				this.lightSwitchRun();
-
+				this.intervalLightRun();
+				this.mouseOverEffect();
 			} else {
 				this.disableAll();
 			}
+	}
+
+	disableAll() {
+		this.removeActiveLighterClass();
+		this.stopChangeLight();
+		this.intervalLightStop();
+		this.removeMouseOverEffect();
 	}
 
 	turnOnButton() {
