@@ -27,7 +27,7 @@ export class SmartLighter {
 	}
 
 	renderLighter() {
-		this.item = [];
+		this.item = new Array();
 		for (let i = 0; i < this.colors.length; i++) {
 			this.light = document.createElement('button');
 			this.light.classList.add('traffic-lighter__lamp');
@@ -48,18 +48,21 @@ export class SmartLighter {
 			el.classList.toggle(ACTIVE_CLASS_NAME);
 		}
 
-		listen(event) {
-			this.turnOnLight(event.target.this.myParam);
+		listen() {
+			this.turnOnLight(el);
+			//event.target?????
 		}
 
-		
-
+	
+	// changeLight() {
+	// 	for (let i = 0; i < this.item.length; i++) {
+	// 		this.item[i].addEventListener('click', this.listen)	
+	// 	}
+	// }
 
 	changeLight() {
-		for (let i = 0; i < this.item.length; i++) {
-			this.item[i].this.myParam[i] = this.item[i];
-			console.log(this.myParam);
-			this.item[i].addEventListener('click', this.listen)	
+		for (const el of this.item) {
+			el.addEventListener('click', this.listen);
 		}
 	}
 
