@@ -48,30 +48,25 @@ export class SmartLighter {
 			el.classList.toggle(ACTIVE_CLASS_NAME);
 		}
 
-		listen(el) {
-			this.turnOnLight(el);
+		listen(event) {
+			this.turnOnLight(event.target.this.myParam);
 		}
 
+		
 
-	changeLight_1() {
-		this.item.forEach(element => {
-			this.element = element;
-			this.element.addEventListener('click', this.listen);
-		});
-	}
 
 	changeLight() {
 		for (let i = 0; i < this.item.length; i++) {
-			this.item[i].addEventListener( 'click', this.listen);
+			this.item[i].this.myParam[i] = this.item[i];
+			console.log(this.myParam);
+			this.item[i].addEventListener('click', this.listen)	
 		}
 	}
 
 	stopChangeLight() {
-		this.item.forEach(element => {
-			element.removeEventListener('click', () => {
-				this.turnOnLight(element);
-			});
-		});
+		for (let i = 0; i < this.item.length; i++) {
+			this.item[i].removeEventListener('click', this.listen.bind(null, this.item[i]))	
+		}
 	}
 
 	removeActiveLighterClass() {
@@ -99,16 +94,16 @@ export class SmartLighter {
 	 }
 	 
 	 mouseOverEffect() {
-		this.lighterContainer.addEventListener('mouseover', 
+		this.lighterContainer.addEventListener('mouseenter', 
 			this.mouseOverEffectStop);
-		this.lighterContainer.addEventListener('mouseout', 
+		this.lighterContainer.addEventListener('mouseleave', 
 			this.mouseOverEffectStart);
 	 }
 
 	 removeMouseOverEffect() {
-		this.lighterContainer.removeEventListener('mouseover', 
+		this.lighterContainer.removeEventListener('mouseenter', 
 			this.mouseOverEffectStop);
-		this.lighterContainer.removeEventListener('mouseout', 
+		this.lighterContainer.removeEventListener('mouseleave', 
 			this.mouseOverEffectStart);
 	 }
 
