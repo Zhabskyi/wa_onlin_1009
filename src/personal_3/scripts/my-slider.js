@@ -8,14 +8,26 @@ export class mySlider {
 
 	render() {
 		this.slideContainer = document.createElement('div');
-		this.image = document.createElement('img');
-		this.slideContainerDescription = document.createElement('div');
+		this.slideContainer.classList.add('slide-container');
+		this.slideContainerItem = document.createElement('div');
+		this.slideContainerItem.classList.add('slide-container__item')
 
-		this.slideContainer.classList = 'slide-container';
-		this.slideContainerDescription.classList = 'slide-container__description';
+		this.slidesInfo.forEach((slideInfo, i) => {
 
-		this.image.src = slidesInfo[0].imgUrl.src;
+			this.image = document.createElement('img');
+			this.slideContainerDescription = document.createElement('div');
 
-		this.slideContainerDescription.innerHTML = this.slidesInfo[0].title;
+			this.image.classList.add('slide-container__item__img');
+			this.slideContainerDescription.classList.add('slide-container__item__description');
+	
+			this.image.src = slideInfo.imgUrl;
+
+			this.slideContainerDescription.innerHTML = slideInfo.title;
+
+			this.slideContainerItem.appendChild(this.image);
+			this.slideContainerItem.appendChild(this.slideContainerDescription);
+		})
+		this.slideContainer.appendChild(this.slideContainerItem);
+		this.rootElement.appendChild(this.slideContainer);
 	}
 }

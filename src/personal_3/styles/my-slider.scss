@@ -1,0 +1,16 @@
+.slide-container {
+	margin: 0 auto;
+	min-height: 150px;
+	border: 2px solid blanchedalmond;
+	&__img {
+		display: block;
+		width: 200px;
+		height: 200px;
+	}
+	&__description {
+		min-height: 50px;
+		min-width: 100px;
+		background-color: aquamarine;
+
+	}
+}
