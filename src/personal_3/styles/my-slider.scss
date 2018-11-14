@@ -1,16 +1,32 @@
-.slide-container {
+.slide {
 	margin: 0 auto;
-	min-height: 150px;
-	border: 2px solid blanchedalmond;
-	&__img {
-		display: block;
-		width: 200px;
-		height: 200px;
+	&__container {
+		display: none;
+		&_active{
+			display: block;
+			min-height: 300px;
+			border: 2px solid blanchedalmond;
+		}
+		&__img {
+			display: block;
+			width: 200px;
+			height: 200px;
+			}
+		&__description {
+			min-height: 50px;
+			min-width: 100px;
+			background-color: aquamarine;
+		}
 	}
-	&__description {
-		min-height: 50px;
-		min-width: 100px;
-		background-color: aquamarine;
+}
 
-	}
+.slider-back-btn {
+	border: 2px solid green;
+	width: 50px;
+	height: 50px;
+}
+.slider-forward-btn {
+	border: 2px solid blue;
+	width: 50px;
+	height: 50px;
 }
