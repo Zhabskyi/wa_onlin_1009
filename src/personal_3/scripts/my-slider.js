@@ -8,6 +8,8 @@ export class mySlider {
 		this.currentSlide = 0;
 		this.render();
 		this.intervalSlideRun();
+		this.switchSlideBack = this.switchSlideBack.bind(this);
+		this.switchSlideForward = this.switchSlideForward.bind(this);
 		this.attachEventHandlers();
 	}
 
@@ -42,8 +44,8 @@ export class mySlider {
 		this.BackBtn.classList.add('slider-back-btn');
 		this.ForwardBtn.classList.add('slider-forward-btn');
 
-		this.BackBtn.textContent = '<';
-		this.ForwardBtn.textContent = '>';
+		this.BackBtn.innerHTML = '&#x2039;';
+		this.ForwardBtn.innerHTML = '&#x203a;';
 
 		this.rootElement.appendChild(this.BackBtn);
 		this.rootElement.appendChild(this.ForwardBtn);
@@ -73,18 +75,22 @@ export class mySlider {
 	}
 
 	attachEventHandlers() {
-		this.BackBtn.addEventListener('click', () => {
-			if (this.currentSlide > 0 ) {
+		this.BackBtn.addEventListener('click', this.switchSlideBack);
+
+		this.ForwardBtn.addEventListener('click', this.switchSlideForward);
+	}
+
+	switchSlideBack() {
+		if (this.currentSlide > 0 ) {
 			this.currentSlide = (this.currentSlide-1)%(this.slidesArray.length);
 			} else {
-				this.currentSlide = this.slidesArray.length;
+				this.currentSlide = this.slidesArray.length - 1;
 			}
 			this.switchSlide();
-		}).bind(this);
+	}
 
-		this.ForwardBtn.addEventListener('click', () => {
-			this.currentSlide = (this.currentSlide+1)%(this.slidesArray.length);
+	switchSlideForward() {
+		this.currentSlide = (this.currentSlide+1)%(this.slidesArray.length);
 			this.switchSlide();
-		});
 	}
 }

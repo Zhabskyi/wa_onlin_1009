@@ -5,19 +5,23 @@ import { mySlider } from './scripts/my-slider';
 
 const slidesInfo = [
 	{
-		title: "Hello world",
-		imgUrl: 'https://images.pexels.com/photos/1571783/pexels-photo-1571783.jpeg?cs=srgb&dl=4x4-adventure-automobile-1571783.jpg&fm=jpg',
+		title: "<h5>Hello world</h5>",
+		imgUrl: 'https://images.pexels.com/photos/904276/pexels-photo-904276.jpeg?cs=srgb&dl=colorful-colourful-fashion-904276.jpg&fm=jpg',
 	},
 	{
-		title: "<h2>Hello world</h2>",
-		imgUrl: 'https://images.pexels.com/photos/678640/pexels-photo-678640.jpeg?cs=srgb&dl=background-calm-cambodia-678640.jpg&fm=jpg',
+		title: "<h5>Look around</h5>",
+		imgUrl: 'https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?cs=srgb&dl=backpack-blonde-hair-blur-214574.jpg&fm=jpg',
 	},
 	{
-		title: "<h2>Hello world</h2>",
-		imgUrl: 'https://images.pexels.com/photos/103123/pexels-photo-103123.jpeg?cs=srgb&dl=clouds-fashion-free-103123.jpg&fm=jpg',
+		title: "<h5>It's wildly open</h5>",
+		imgUrl: 'https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?cs=srgb&dl=beautiful-cellphone-cute-761963.jpg&fm=jpg',
+	},
+	{
+		title: "<h5>Lock up your target</h5>",
+		imgUrl: 'https://images.pexels.com/photos/7640/pexels-photo.jpg?cs=srgb&dl=adventure-balance-balanced-7640.jpg&fm=jpg',
 	}
 ];
 
-const timeInterval = 2500;
+const timeInterval = 12500;
 
 const slider = new mySlider(document.querySelector('#slide'), slidesInfo, timeInterval);
