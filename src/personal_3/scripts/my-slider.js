@@ -18,7 +18,7 @@ export class mySlider {
 
 		this.slidesInfo.forEach((slideInfo, i) => {
 			this.slideContainer = document.createElement('div');
-			this.slideContainer.classList.add('slide__container')
+			this.slideContainer.classList.add('slide__container');
 
 			this.image = document.createElement('img');
 			this.slideContainerDescription = document.createElement('div');
@@ -38,14 +38,17 @@ export class mySlider {
 			
 		})
 
+		this.controlContainer = document.createElement('div');
+		this.controlContainer.classList.add('slide__control');
+
 		this.BackBtn = document.createElement('button');
 		this.ForwardBtn = document.createElement('button');
 
 		this.BackBtn.classList.add('slider-back-btn');
 		this.ForwardBtn.classList.add('slider-forward-btn');
 
-		this.BackBtn.innerHTML = '&#x2039;';
-		this.ForwardBtn.innerHTML = '&#x203a;';
+		this.BackBtn.textContent = '<';
+		this.ForwardBtn.textContent = '>';
 
 		this.rootElement.appendChild(this.BackBtn);
 		this.rootElement.appendChild(this.ForwardBtn);
@@ -76,7 +79,6 @@ export class mySlider {
 
 	attachEventHandlers() {
 		this.BackBtn.addEventListener('click', this.switchSlideBack);
-
 		this.ForwardBtn.addEventListener('click', this.switchSlideForward);
 	}
 

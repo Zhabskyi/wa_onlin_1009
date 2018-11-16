@@ -22,6 +22,6 @@ const slidesInfo = [
 	}
 ];
 
-const timeInterval = 12500;
+const timeInterval = 2500;
 
 const slider = new mySlider(document.querySelector('#slide'), slidesInfo, timeInterval);
