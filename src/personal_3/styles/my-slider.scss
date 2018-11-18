@@ -1,22 +1,24 @@
+button:focus {outline:0;}
+
 .slide {
 	margin: 0 auto;
 	max-width: 640px;
 	&__container {
-		//display: none;
-		display: hidden;
-		position: absolute;
-		opacity: 0; 
+		display: none;
+		// display: hidden;
+		// position: absolute;
+		// opacity: 0; 
 		&_active{
 			position: relative;
-			//display: block;
-			opacity: 1; 
-			transition: opacity 0.5s ease-in-out;
+			display: block;
+			// opacity: 1; 
+			// transition: opacity 1.5s ease-in-out;
 		}
 		&__img {
 			width: 100%;
 			}
 		&__description {
-			text-align: right;
+			text-align: center;
 			width: 100%;
 			font-size: 1rem;
 		}
@@ -28,6 +30,7 @@
 		display: flex;
 		justify-content: center;
 		&_btns {
+			justify-content: center;
 			cursor: pointer;
 			align-items: center;
 			height: 16px;
@@ -39,13 +42,15 @@
 			&_active {
 				background-color: rgb(78, 78, 78);
 			}
+			&_active:hover {
+				background-color: rgb(78, 78, 78);
+			}
 		}
 		&_btns:hover {
 			background-color: rgb(230, 230, 230);
 		}
 		&-back-btn, &-forward-btn {
 		cursor: pointer;
-		justify-content: left;
 		border: 1px solid rgb(168, 168, 168);
 		width: 60px;
 		height: 60px;
@@ -53,6 +58,9 @@
 		font-size: 2.5rem;
 		color: rgb(206, 206, 206);
 		background-color: rgba(231, 231, 231, 0.15);
+		}
+		&-forward-btn {
+			margin-right: auto;
 		}
 		&-back-btn:hover, &-forward-btn:hover {
 			background-color: rgba(231, 231, 231, 0.7);
