@@ -1,4 +1,6 @@
-button:focus {outline:0;}
+button:focus {
+	outline:0;
+}
 
 .slide {
 	margin: 0 auto;
@@ -25,7 +27,7 @@ button:focus {outline:0;}
 	}
 }
 
-.slide{
+.slide {
 	&__control{
 		display: flex;
 		justify-content: center;
@@ -67,4 +69,20 @@ button:focus {outline:0;}
 			border: 1px solid rgb(153, 153, 153);
 		}
 	}	
+}
+
+.comments {
+	margin: 60px auto 20px auto;
+	max-width: 640px;
+	&__form {
+		&__input{
+
+		}
+		&__submit-btn {
+			margin-left: 10px;
+		}
+	}
+	&__item {
+		
+	}
 }

@@ -1,7 +1,7 @@
 const ACTIVE_CLASS_NAME = 'slide__container_active';
 const ACTIVE_CONTROLS_CLASS_NAME = 'slide__control_btns_active';
 
-export class mySlider {
+export class MySlider {
 	constructor(rootElement, slidesInfo, timeInterval){
 		this.rootElement = rootElement;
 		this.slidesInfo = slidesInfo;
@@ -17,6 +17,9 @@ export class mySlider {
 	render() {
 		this.slidesArray = [];
 		this.controlBtnArray = [];
+
+		this.mainContainer = document.createElement('div');
+		this.mainContainer.classList.add('slide');
 
 		this.slidesInfo.forEach((slideInfo, i) => {
 			this.slideContainer = document.createElement('div');
@@ -42,7 +45,8 @@ export class mySlider {
 			})
 			this.controlBtnArray.push(this.control);
 
-			this.rootElement.appendChild(this.slideContainer);
+			this.rootElement.appendChild(this.mainContainer);
+			this.mainContainer.appendChild(this.slideContainer);
 			this.slideContainer.appendChild(this.image);
 			this.slideContainer.appendChild(this.slideContainerDescription);
 			
@@ -61,7 +65,7 @@ export class mySlider {
 		this.BackBtn.textContent = '<';
 		this.ForwardBtn.textContent = '>';
 
-		this.rootElement.appendChild(this.controlContainer);
+		this.mainContainer.appendChild(this.controlContainer);
 		this.controlContainer.appendChild(this.BackBtn);
 		this.controlContainer.appendChild(this.ForwardBtn);
 

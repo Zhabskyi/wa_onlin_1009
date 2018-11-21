@@ -1,6 +1,8 @@
 import './personal_3.scss';
 
-import { mySlider } from './scripts/my-slider';
+import { MySlider } from './scripts/my-slider';
+import { CommentBlock } from './scripts/comment-block';
+
 
 
 const slidesInfo = [
@@ -23,5 +25,7 @@ const slidesInfo = [
 ];
 
 const timeInterval = 2500;
+const divParent = document.querySelector('#container');
 
-const slider = new mySlider(document.querySelector('#slide'), slidesInfo, timeInterval);
+const slider = new MySlider(divParent, slidesInfo, timeInterval);
+const comments = new CommentBlock(divParent);
