@@ -20,6 +20,7 @@ const baseConf = (_path) => {
         lesson_8: ['./src/lesson_8/lesson_8.js'],
         lesson9: ['./src/lesson9/lesson9.js'],
 				lesson_10: ['./src/lesson_10/lesson_10.js'],
+				lighthouse: ['./src/lighthouse/lighthouse.js'],
 				meeting_6: ['./src/meeting_6/meeting_6.js'],
 				personal_1: ['./src/personal_1/personal_1.js'],
 				personal_2: ['./src/personal_2/personal_2.js'],

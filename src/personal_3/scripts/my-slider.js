@@ -34,7 +34,7 @@ export class MySlider {
 		
 			this.image.src = slideInfo.imgUrl;
 			this.slideContainerDescription.innerHTML = slideInfo.title;
-
+  
 			this.control = document.createElement('button');
 			this.control.classList.add('slide__control_btns');
 			this.control.addEventListener('click', () => {
@@ -42,7 +42,7 @@ export class MySlider {
 				this.switchSlide();
 				this.intervalSlideStop();
 				this.intervalDelay();
-			})
+			});
 			this.controlBtnArray.push(this.control);
 
 			this.rootElement.appendChild(this.mainContainer);
@@ -97,7 +97,6 @@ export class MySlider {
 	switchingSlides() {
 		this.currentSlide = (this.currentSlide+1)%(this.slidesArray.length);
 		this.switchSlide();
-		console.log(this.currentSlide);
 	}
 
 	intervalSlideRun() {

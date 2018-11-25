@@ -1,36 +1,40 @@
 export class HTTPService {
-  get(url, successCallback, errorCallback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
-    xhr.send();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4) {
-        if(xhr.status === 200) {
-          const parsedData = JSON.parse(xhr.response);
-          successCallback(parsedData);
-        } else {
-          errorCallback(xhr);
-        }
-      }
-    }
+  get(url) {
+    return new Promise((resolve, reject) => {
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', url);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4) {
+					if(xhr.status === 200) {
+						const parsedData = JSON.parse(xhr.response);
+						resolve(parsedData);
+					} else {
+						reject(xhr);
+					}
+				}
+			}
+		})
   }
 
-  post(url, data, successCallback, errorCallback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
-    xhr.setRequestHeader('content-type', 'application/json');
-    xhr.send((typeof data !== 'string') ? JSON.stringify(data) : data);
+  post(url, data) {
+    return new Promise ((resolve, reject) => {
+			const xhr = new XMLHttpRequest();
+				xhr.open('POST', url);
+				xhr.setRequestHeader('content-type', 'application/json');
+				xhr.send((typeof data !== 'string') ? JSON.stringify(data) : data);
 
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4) {
-        if(xhr.status === 200) {
-          const parsedData = JSON.parse(xhr.response);
-          successCallback(parsedData);
-        } else {
-          errorCallback(xhr);
-        }
-      }
-    }
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4) {
+						if(xhr.status === 200) {
+							const parsedData = JSON.parse(xhr.response);
+							resolve(parsedData);
+						} else {
+							reject(xhr);
+						}
+					}
+				}
+		})
   }
 
   delete(url, successCallback, errorCallback) {
