@@ -60,30 +60,83 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 359);
+/******/ 	return __webpack_require__(__webpack_require__.s = 355);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 359:
+/***/ 355:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(360);
+module.exports = __webpack_require__(356);
 
 
 /***/ }),
 
-/***/ 360:
+/***/ 356:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(361);
+var _tab = __webpack_require__(357);
+
+__webpack_require__(358);
+
+(0, _tab.tab)();
 
 /***/ }),
 
-/***/ 361:
+/***/ 357:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.tab = tab;
+function tab() {
+	var ITEM_ACTIVE_CLASS = 'tab__item__article_active';
+	var CONTENT_ACTIVE_CLASS = 'tab__content__item_active';
+	var itemArticle = document.querySelectorAll('.tab__item__article');
+	var itemContent = document.querySelectorAll('.tab__content__item');
+	var activeElement = itemArticle[0];
+	var activeArticle = itemContent[0];
+
+	function switchContent(element) {
+		if (activeElement !== undefined) {
+			console.log(activeElement);
+			activeElement.classList.remove(CONTENT_ACTIVE_CLASS);
+		}
+		activeElement = element;
+		element.classList.add(CONTENT_ACTIVE_CLASS);
+	}
+
+	function switchArticle(element) {
+		if (activeArticle !== undefined) {
+			activeArticle.classList.remove(ITEM_ACTIVE_CLASS);
+		}
+		activeArticle = element;
+		element.classList.add(ITEM_ACTIVE_CLASS);
+	}
+
+	var _loop = function _loop(i) {
+		itemArticle[i].addEventListener('click', function () {
+			switchContent(itemContent[i]);
+			switchArticle(itemArticle[i]);
+		});
+	};
+
+	for (var i = 0; i < itemArticle.length; i++) {
+		_loop(i);
+	}
+}
+
+/***/ }),
+
+/***/ 358:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

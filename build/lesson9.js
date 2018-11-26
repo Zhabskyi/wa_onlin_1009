@@ -60,30 +60,77 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 359);
+/******/ 	return __webpack_require__(__webpack_require__.s = 362);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 359:
+/***/ 362:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(360);
+module.exports = __webpack_require__(363);
 
 
 /***/ }),
 
-/***/ 360:
+/***/ 363:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(361);
+__webpack_require__(364);
+
+var commentForm = document.querySelector('#commentForm');
+var cancel = document.querySelector('#cancel');
+var userName = document.querySelector('#username');
+var userText = document.querySelector('#userText');
+var text = document.querySelector('#text');
+
+function createComment() {
+    return '<div class="comment">\n                <p>' + userText.value + '</p>\n                <h2>' + userName.value + '</h2> \n            </div>';
+}
+
+function resetFileds() {
+    userName.value = '';
+    userText.value = '';
+}
+
+function send(e) {
+    e.preventDefault();
+    var texxtComntent = text.innerHTML;
+    if (!userName.value) {
+        //userName.value === '' or !!userName.value - двойное отрицание
+        userName.style.background = 'red';
+        text.innerHTML = 'Error!';
+    }
+
+    console.log(text.innerHTML);
+
+    if (!userText.value) {
+        userText.style.background = 'red';
+        text.innerHTML = 'Error!';
+    }
+
+    if (!!userName.value && !!userText.value) {
+        text.innerHTML = text.innerHTML + createComment();
+        resetFileds();
+    }
+}
+
+function reset(e) {
+    resetFileds();
+    userName.style.background = 'inherit';
+    userText.style.background = 'inherit';
+    text.innerHTML = '';
+}
+
+commentForm.onsubmit = send;
+cancel.onclick = reset;
 
 /***/ }),
 
-/***/ 361:
+/***/ 364:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

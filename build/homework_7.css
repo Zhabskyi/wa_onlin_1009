@@ -1,3 +1,33 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #505050; }
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh; }
+
+h1,
+h2,
+h3,
+h4,
+p, figure {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none;
+  display: inline-block; }
+
 .grid-container {
   display: -ms-flexbox;
   display: flex;
@@ -10,6 +40,8 @@
   -ms-flex-negative: 0;
       flex-shrink: 0;
   padding: 0.5rem;
+  border: 1px solid red;
+  height: 200px;
   position: relative;
   min-height: 1px; }
 
@@ -672,95 +704,3 @@
 
 .offset-sm-12 {
   margin-left: 100%; }
-
-* {
-  box-sizing: border-box; }
-
-html {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px; }
-
-body {
-  padding: 0;
-  margin: 0;
-  min-height: 100vh; }
-
-h1,
-h2,
-h3,
-h4,
-p, figure {
-  margin: 0;
-  padding: 0; }
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0; }
-
-h2 {
-  font-size: 4.57rem; }
-
-h3 {
-  font-size: 2rem; }
-
-h4 {
-  font-size: 1rem; }
-
-a {
-  text-decoration: none;
-  display: inline-block; }
-
-.post {
-  min-height: 640px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; }
-  .post_first {
-    background-image: url(./assets/images/first.jpg); }
-  .post_second {
-    background-image: url(./assets/images/second.jpg); }
-  .post_third {
-    background-image: url(./assets/images/third.jpg);
-    background-position: bottom left; }
-  .post__thumbnail {
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    object-fit: cover; }
-  .post__fourth {
-    background-image: url(./assets/images/fourth.jpg);
-    background-position: center; }
-
-.section {
-  height: 80vh;
-  padding: 6.25px; }
-
-.block_small {
-  height: 50%; }
-
-.block-test {
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: bottom;
-  background-image: url(./assets/images/speaker-0.jpg); }
-
-.block .block {
-  padding: 12.5px; }
-
-.block .block_small {
-  padding: 0;
-  padding-bottom: 12.5px; }
-
-.block .block_small:last-child {
-  padding-bottom: 0; }
-
-.block .test-container {
-  height: 100%;
-  background: green; }

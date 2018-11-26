@@ -60,30 +60,54 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 359);
+/******/ 	return __webpack_require__(__webpack_require__.s = 374);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 359:
+/***/ 374:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(360);
+module.exports = __webpack_require__(375);
 
 
 /***/ }),
 
-/***/ 360:
+/***/ 375:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(361);
+__webpack_require__(376);
+
+var GRID = [["", "", "", "^", "", "", "", "", "", ""], ["", "", "v", "", "~", "", "", "", "", ""], ["", "v", "", "", "^", "^", "", "", "", ""], ["", "", "", "", "^", "^", "", "", "", ""], ["", "", "", "", "", "", "", "", "v", ""], ["", "", "", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", "", "", ""], ["", "^", "~", "~", "", "", "", "^", "", ""], ["", "^", "", "~", "~", "", "", "", "", ""], ["", "^", "", "", "~", "~", "", "", "", ""]];
+
+var btn = document.querySelector('#calculate-btn');
+var result = document.querySelector('#reesult');
+
+btn.addEventListener('click', function () {
+	result.textContent = "Rows in the grid - " + countRows() + "\n\t\t\t\t\t\t\t\t\t\t\t\tColumns in the grid - " + countColumns() + "\n\t\t\t\t\t\t\t\t\t\t\t\tGRid Size - " + gridSize();
+});
+
+function countRows() {
+	return GRID.length;
+}
+
+function countColumns() {
+	return GRID[1].length;
+}
+
+function gridSize() {
+	var rows = countRows();
+	var columns = countColumns();
+	var x = '' + rows + ' x ' + columns;
+	return x;
+}
 
 /***/ }),
 
-/***/ 361:
+/***/ 376:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

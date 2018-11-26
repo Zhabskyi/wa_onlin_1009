@@ -25,6 +25,8 @@ const baseConf = (_path) => {
 				personal_1: ['./src/personal_1/personal_1.js'],
 				personal_2: ['./src/personal_2/personal_2.js'],
 				personal_3: ['./src/personal_3/personal_3.js'],
+				personal_4: ['./src/personal_4/personal_4.js'],
+
     };
 
     const plugins = Object.keys(entry).reduce((acc, name) => {

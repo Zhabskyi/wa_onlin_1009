@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px; }
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh; }
+
+h1,
+h2,
+h3,
+h4,
+p, figure {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+h2 {
+  font-size: 4.57rem; }
+
+h3 {
+  font-size: 2rem; }
+
+h4 {
+  font-size: 1rem; }
+
+a {
+  text-decoration: none;
+  display: inline-block; }
+
+.control-panel {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px auto;
+  min-height: 40px;
+  max-width: 350px; }
+  .control-panel__next-btn {
+    background-color: #7d9bc2;
+    width: 60px; }
+  .control-panel__targetElement {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%; }
+    .control-panel__targetElement__btn {
+      font-size: 1rem;
+      border: 1px solid grey;
+      background-color: white;
+      color: #2d3333;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.selected-btn {
+  background-color: #d9e6f7; }
+
+.clock-btn {
+  display: block;
+  margin: 0 auto;
+  font-size: 36px;
+  border: 1px solid #4b7ead;
+  background-color: #cbe2e9; }

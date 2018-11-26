@@ -60,33 +60,125 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 359);
+/******/ 	return __webpack_require__(__webpack_require__.s = 350);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 359:
+/***/ 350:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(360);
+module.exports = __webpack_require__(351);
 
 
 /***/ }),
 
-/***/ 360:
+/***/ 351:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(361);
+__webpack_require__(352);
+
+var _lightBulb = __webpack_require__(353);
+
+var _accordion = __webpack_require__(354);
+
+var lightersHtmlElements = document.querySelectorAll('.light');
+
+for (var i = 0; i < lightersHtmlElements.length; i++) {
+	(0, _lightBulb.LightTheBulb)(lightersHtmlElements[i]);
+}
+
+/*Here starts script for accordion*/
+var activeEl = document.querySelectorAll('.article');
+var activeHead = document.querySelectorAll('.article__header');
+
+var _loop = function _loop(_i) {
+	activeHead[_i].onclick = function () {
+		(0, _accordion.addClass)(activeEl[_i]);
+	};
+};
+
+for (var _i = 0; _i < activeEl.length; _i++) {
+	_loop(_i);
+}
+
+function pagination(currentEl, number) {
+
+	var buttons = [];
+
+	for (var _i2 = 0; _i2 < number; _i2++) {
+		var btn = document.createElement('button');
+		buttons.push(btn);
+		btn.textContent = _i2 + 1;
+		currentEl.appendChild(btn);
+		btn.addEventListener('click', select);
+	}
+
+	function select() {
+		buttons.forEach(function (item) {
+			return item.style.background = 'none';
+		});
+		this.style.background = 'red';
+	}
+}
+
+pagination(document.querySelector('.targetElement'), 3);
 
 /***/ }),
 
-/***/ 361:
+/***/ 352:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 353:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.LightTheBulb = LightTheBulb;
+function LightTheBulb(targetEl) {
+	var ACTIVE_CLASS_NAME = 'light__bulb_active';
+	var light = targetEl.querySelector('.light__bulb');
+	var lightBtn = targetEl.querySelector('.light__btn');
+
+	function addLight(element) {
+		element.classList.toggle(ACTIVE_CLASS_NAME);
+	}
+
+	lightBtn.onclick = function () {
+		addLight(light);
+	};
+}
+
+/***/ }),
+
+/***/ 354:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.addClass = addClass;
+var OPEN_CLASS_NAME = 'open';
+var CLOSE_CLASS_NAME = 'close';
+
+function addClass(element) {
+	element.classList.toggle(OPEN_CLASS_NAME);
+	element.classList.toggle(CLOSE_CLASS_NAME);
+}
 
 /***/ })
 
