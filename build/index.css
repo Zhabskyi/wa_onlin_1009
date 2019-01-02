@@ -38,6 +38,7 @@ a {
   padding: 0 1rem;
   z-index: 100; }
   .global-nav__link {
+    padding: 0 5px;
     text-align: center;
     width: 100%;
     display: -ms-flexbox;
@@ -71,8 +72,7 @@ a {
     -ms-flex: 1 1;
         flex: 1 1;
     display: -ms-flexbox;
-    display: flex;
-    padding: 0 1rem; }
+    display: flex; }
     .global-nav__item:hover .global-nav__menu__sub {
       opacity: 1;
       display: -ms-flexbox;
