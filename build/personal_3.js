@@ -60,30 +60,30 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 391);
+/******/ 	return __webpack_require__(__webpack_require__.s = 369);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 391:
+/***/ 369:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(392);
+module.exports = __webpack_require__(370);
 
 
 /***/ }),
 
-/***/ 392:
+/***/ 370:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(393);
+__webpack_require__(371);
 
-var _mySlider = __webpack_require__(394);
+var _mySlider = __webpack_require__(372);
 
-var _commentBlock = __webpack_require__(395);
+var _commentBlock = __webpack_require__(373);
 
 var slidesInfo = [{
 	title: "<h5>Hello world</h5>",
@@ -107,14 +107,14 @@ var comments = new _commentBlock.CommentBlock(divParent);
 
 /***/ }),
 
-/***/ 393:
+/***/ 371:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 394:
+/***/ 372:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -307,7 +307,7 @@ var MySlider = exports.MySlider = function () {
 
 /***/ }),
 
-/***/ 395:
+/***/ 373:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -320,7 +320,7 @@ exports.CommentBlock = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _httpService = __webpack_require__(396);
+var _httpService = __webpack_require__(93);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -433,14 +433,14 @@ var CommentBlock = exports.CommentBlock = function () {
 
 /***/ }),
 
-/***/ 396:
+/***/ 93:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -448,91 +448,95 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var HTTPService = exports.HTTPService = function () {
-  function HTTPService() {
-    _classCallCheck(this, HTTPService);
-  }
+	function HTTPService() {
+		_classCallCheck(this, HTTPService);
+	}
 
-  _createClass(HTTPService, [{
-    key: 'get',
-    value: function get(url) {
-      return new Promise(function (resolve, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url);
-        xhr.send();
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              var parsedData = JSON.parse(xhr.response);
-              resolve(parsedData);
-            } else {
-              reject(xhr);
-            }
-          }
-        };
-      });
-    }
-  }, {
-    key: 'post',
-    value: function post(url, data) {
-      return new Promise(function (resolve, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', url);
-        xhr.setRequestHeader('content-type', 'application/json');
-        xhr.send(typeof data !== 'string' ? JSON.stringify(data) : data);
+	_createClass(HTTPService, [{
+		key: 'get',
+		value: function get(url) {
+			return new Promise(function (resolve, reject) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', url);
+				xhr.send();
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+							var parsedData = JSON.parse(xhr.response);
+							resolve(parsedData);
+						} else {
+							reject(xhr);
+						}
+					}
+				};
+			});
+		}
+	}, {
+		key: 'post',
+		value: function post(url, data) {
+			return new Promise(function (resolve, reject) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', url);
+				xhr.setRequestHeader('content-type', 'application/json');
+				xhr.send(typeof data !== 'string' ? JSON.stringify(data) : data);
 
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              var parsedData = JSON.parse(xhr.response);
-              resolve(parsedData);
-            } else {
-              reject(xhr);
-            }
-          }
-        };
-      });
-    }
-  }, {
-    key: 'delete',
-    value: function _delete(url, successCallback, errorCallback) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('DELETE', url);
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+							var parsedData = JSON.parse(xhr.response);
+							resolve(parsedData);
+						} else {
+							reject(xhr);
+						}
+					}
+				};
+			});
+		}
+	}, {
+		key: 'delete',
+		value: function _delete(url) {
+			return new Promise(function (resolve, reject) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('DELETE', url);
 
-      xhr.send();
+				xhr.send();
 
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            var parsedData = JSON.parse(xhr.response);
-            successCallback(parsedData);
-          } else {
-            errorCallback(xhr);
-          }
-        }
-      };
-    }
-  }, {
-    key: 'put',
-    value: function put(url, data, successCallback, errorCallback) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('PUT', url);
-      xhr.setRequestHeader('content-type', 'application/json');
-      xhr.send(JSON.stringify(data));
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+							var parsedData = JSON.parse(xhr.response);
+							resolve(parsedData);
+						} else {
+							reject(xhr);
+						}
+					}
+				};
+			});
+		}
+	}, {
+		key: 'put',
+		value: function put(url, data) {
+			return new Promise(function (resolve, reject) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('PUT', url);
+				xhr.setRequestHeader('content-type', 'application/json');
+				xhr.send(JSON.stringify(data));
 
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            var parsedData = JSON.parse(xhr.response);
-            successCallback(parsedData);
-          } else {
-            errorCallback(xhr);
-          }
-        }
-      };
-    }
-  }]);
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+							var parsedData = JSON.parse(xhr.response);
+							resolve(parsedData);
+						} else {
+							reject(xhr);
+						}
+					}
+				};
+			});
+		}
+	}]);
 
-  return HTTPService;
+	return HTTPService;
 }();
 
 /***/ })

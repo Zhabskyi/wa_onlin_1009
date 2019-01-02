@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px; }
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p, figure {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+h2 {
+  font-size: 4.57rem; }
+
+h3 {
+  font-size: 2rem; }
+
+h4 {
+  font-size: 1rem; }
+
+a {
+  text-decoration: none;
+  display: inline-block; }
+
+button:focus {
+  outline: 0; }
+
+.comments {
+  margin: 60px auto 20px auto;
+  max-width: 640px; }
+  .comments__form {
+    min-height: 30px;
+    margin-bottom: 30px; }
+    .comments__form__input {
+      border: 2px solid #606a8b;
+      font-size: 1rem;
+      margin-right: 1rem;
+      width: 50%;
+      height: 30px;
+      outline: none; }
+    .comments__form__submit-btn {
+      border: none;
+      padding: 0.5rem;
+      text-decoration: none;
+      background: #b0d3ff;
+      color: #000000;
+      font-family: sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center; }
+  .comments__block {
+    margin-bottom: 20px; }
+    .comments__block__item {
+      padding: 10px; }
+      .comments__block__item-delete-btn {
+        display: block;
+        float: right;
+        margin-right: 100px; }
+
+.author-name {
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: 1.4rem; }
+
+.date {
+  font-size: 12px; }
+
+.comment {
+  font-size: 18px; }

@@ -1,8 +1,13 @@
 import * as React from 'react';
+import {Comments} from '../components/Comments.jsx';
+import {CommentsInput} from '../components/Comments-Input.jsx';
+
 
 
 export class App extends React.Component {
 	render() {
-		return <h1>Hello world</h1>
+		return <div className='comments'>
+			<Comments />
+			</div>
 	}
 }

@@ -60,30 +60,34 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 350);
+/******/ 	return __webpack_require__(__webpack_require__.s = 343);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 350:
+/***/ 343:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(351);
+module.exports = __webpack_require__(344);
 
 
 /***/ }),
 
-/***/ 351:
+/***/ 344:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(352);
+__webpack_require__(345);
 
-var _lightBulb = __webpack_require__(353);
+var _lightBulb = __webpack_require__(346);
 
-var _accordion = __webpack_require__(354);
+var _accordion = __webpack_require__(347);
+
+var _tab = __webpack_require__(348);
+
+(0, _tab.tab)();
 
 var lightersHtmlElements = document.querySelectorAll('.light');
 
@@ -129,14 +133,14 @@ pagination(document.querySelector('.targetElement'), 3);
 
 /***/ }),
 
-/***/ 352:
+/***/ 345:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 353:
+/***/ 346:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -162,7 +166,7 @@ function LightTheBulb(targetEl) {
 
 /***/ }),
 
-/***/ 354:
+/***/ 347:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -178,6 +182,55 @@ var CLOSE_CLASS_NAME = 'close';
 function addClass(element) {
 	element.classList.toggle(OPEN_CLASS_NAME);
 	element.classList.toggle(CLOSE_CLASS_NAME);
+}
+
+/***/ }),
+
+/***/ 348:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.tab = tab;
+function tab() {
+	var ITEM_ACTIVE_CLASS = 'tab__item__article_active';
+	var CONTENT_ACTIVE_CLASS = 'tab__content__item_active';
+	var itemArticle = document.querySelectorAll('.tab__item__article');
+	var itemContent = document.querySelectorAll('.tab__content__item');
+	var activeElement = itemArticle[0];
+	var activeArticle = itemContent[0];
+
+	function switchContent(element) {
+		if (activeElement !== undefined) {
+			console.log(activeElement);
+			activeElement.classList.remove(CONTENT_ACTIVE_CLASS);
+		}
+		activeElement = element;
+		element.classList.add(CONTENT_ACTIVE_CLASS);
+	}
+
+	function switchArticle(element) {
+		if (activeArticle !== undefined) {
+			activeArticle.classList.remove(ITEM_ACTIVE_CLASS);
+		}
+		activeArticle = element;
+		element.classList.add(ITEM_ACTIVE_CLASS);
+	}
+
+	var _loop = function _loop(i) {
+		itemArticle[i].addEventListener('click', function () {
+			switchContent(itemContent[i]);
+			switchArticle(itemArticle[i]);
+		});
+	};
+
+	for (var i = 0; i < itemArticle.length; i++) {
+		_loop(i);
+	}
 }
 
 /***/ })

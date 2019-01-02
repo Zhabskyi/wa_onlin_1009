@@ -60,30 +60,30 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 381);
+/******/ 	return __webpack_require__(__webpack_require__.s = 359);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 381:
+/***/ 359:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(382);
+module.exports = __webpack_require__(360);
 
 
 /***/ }),
 
-/***/ 382:
+/***/ 360:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(383);
+__webpack_require__(361);
 
-var _clock = __webpack_require__(384);
+var _clock = __webpack_require__(362);
 
-var _clockClasses = __webpack_require__(385);
+var _clockClasses = __webpack_require__(363);
 
 var ROOT_CLASS_NAME = 'control-panel';
 var CONTROL_BTN_CLASS_NAME = ROOT_CLASS_NAME + '__next-btn';
@@ -164,14 +164,14 @@ var clockThird = new _clockClasses.Clock(document.querySelector('.third-clock'),
 
 /***/ }),
 
-/***/ 383:
+/***/ 361:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 384:
+/***/ 362:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -211,7 +211,7 @@ function updateClock() {
 
 /***/ }),
 
-/***/ 385:
+/***/ 363:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -1,6 +1,9 @@
 import './homework_10.scss';
 import { LightTheBulb } from './scripts/light-bulb';
 import { addClass } from './scripts/accordion';
+import { tab } from './scripts/tab';
+
+tab();
 
 const lightersHtmlElements = document.querySelectorAll('.light');
 

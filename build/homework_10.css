@@ -99,3 +99,31 @@ a {
 
 .open .article__header {
   background-image: linear-gradient(96deg, #010289 2%, #1d30d5); }
+
+.tab {
+  width: 520px;
+  margin: 0 auto;
+  position: relative; }
+  .tab__item {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: #04082c;
+    color: #fff;
+    font-size: 26px; }
+    .tab__item__article {
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+      text-align: center;
+      padding: 24px 39px; }
+      .tab__item__article_active {
+        background-color: #1426e1; }
+  .tab__content__item {
+    display: none;
+    border: 2px solid green;
+    width: 100%;
+    min-height: 80px; }
+    .tab__content__item_active {
+      display: -ms-flexbox;
+      display: flex; }

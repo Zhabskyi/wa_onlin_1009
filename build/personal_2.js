@@ -60,30 +60,30 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 386);
+/******/ 	return __webpack_require__(__webpack_require__.s = 364);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 386:
+/***/ 364:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(387);
+module.exports = __webpack_require__(365);
 
 
 /***/ }),
 
-/***/ 387:
+/***/ 365:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(388);
+__webpack_require__(366);
 
-var _smartLighter = __webpack_require__(389);
+var _smartLighter = __webpack_require__(367);
 
-var _anotherFile = __webpack_require__(390);
+var _anotherFile = __webpack_require__(368);
 
 var colors = ['red', 'yellow', 'green'];
 
@@ -93,14 +93,14 @@ var lighter = new _anotherFile.NewLighter(document.querySelector('.content'), co
 
 /***/ }),
 
-/***/ 388:
+/***/ 366:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 389:
+/***/ 367:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -302,7 +302,7 @@ var SmartLighter = exports.SmartLighter = function () {
 
 /***/ }),
 
-/***/ 390:
+/***/ 368:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
