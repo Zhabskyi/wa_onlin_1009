@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px; }
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh; }
+
+h1,
+h2,
+h3,
+h4,
+p, figure {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+h2 {
+  font-size: 4.57rem; }
+
+h3 {
+  font-size: 2rem; }
+
+h4 {
+  font-size: 1rem; }
+
+a {
+  text-decoration: none;
+  display: inline-block; }
+
+.container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .container__bulbs {
+    display: -ms-flexbox;
+    display: flex; }
+
+.light {
+  width: 100px;
+  margin: 0 auto; }
+  .light__bulb {
+    margin: 20px 10px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: black; }
+    .light__bulb_active {
+      background-color: yellow; }
+  .light__btn {
+    width: 80px;
+    height: 40px;
+    margin: 10px 10px;
+    background-color: #383f42;
+    color: aliceblue; }
+
+.article {
+  width: 520px;
+  margin: 0 auto; }
+  .article__header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    padding: 28px 30px;
+    font-size: 22px;
+    height: 80px;
+    color: #f5fafa;
+    background-color: #171750; }
+  .article__paragraph {
+    padding: 20px; }
+
+.close .article__paragraph {
+  height: 0px;
+  display: block;
+  transition: height 1s ease-out;
+  -ms-transform: scaleY(0);
+      transform: scaleY(0); }
+
+.open .article__paragraph {
+  display: block;
+  padding: 20px;
+  border: 1px solid #577fca;
+  width: 100%;
+  -ms-transform: scaleY(1);
+      transform: scaleY(1);
+  -ms-transform-origin: top;
+      transform-origin: top;
+  transition: transform 0.4s ease; }
+
+.open .article__header {
+  background-image: linear-gradient(96deg, #010289 2%, #1d30d5); }
+
+.tab {
+  width: 520px;
+  margin: 0 auto;
+  position: relative; }
+  .tab__item {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: #04082c;
+    color: #fff;
+    font-size: 26px; }
+    .tab__item__article {
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+      text-align: center;
+      padding: 24px 39px; }
+      .tab__item__article_active {
+        background-color: #1426e1; }
+  .tab__content__item {
+    display: none;
+    border: 2px solid green;
+    width: 100%;
+    min-height: 80px; }
+    .tab__content__item_active {
+      display: -ms-flexbox;
+      display: flex; }
